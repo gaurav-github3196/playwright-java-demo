@@ -56,9 +56,6 @@
 					<suiteXmlFiles>
 						<suiteXmlFile>src/main/resources/testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
-					<systemPropertyVariables>
-						<build-name>${surefire.testng.build}</build-name>
-					</systemPropertyVariables>
 					<groups>${surefire.testng.groups}</groups>
 					<testFailureIgnore>true</testFailureIgnore>
 				</configuration>

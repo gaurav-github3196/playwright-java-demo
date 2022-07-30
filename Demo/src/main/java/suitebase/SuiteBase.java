@@ -63,15 +63,14 @@ public class SuiteBase {
 		options.setHeadless(false);
 		options.setChannel("chrome");
 		options.setArgs(Arrays.asList("--start-maximized"));
-		System.out.println(Boolean.parseBoolean(prop.getProperty("setProxy").toLowerCase()));
-		System.out.println(Boolean.parseBoolean(prop.getProperty("traceviewer").toLowerCase()));
+		
 		
 		if(Boolean.parseBoolean(prop.getProperty("setProxy"))) {
 			options.setProxy(setUpProxy());
 		}
 		
 		browser = playwright.chromium().launch(options);
-		System.out.println("------------ Chrome Browser Started --------------");
+
 		
 		NewContextOptions contextOptions = new NewContextOptions()
 				.setJavaScriptEnabled(true)
@@ -81,7 +80,6 @@ public class SuiteBase {
 		context = browser.newContext(contextOptions);
 		
 		if(Boolean.parseBoolean(prop.getProperty("traceviewer"))) {
-			System.out.println("------------ Tracing started --------------");
 			context.tracing().start(new Tracing.StartOptions()
 					.setScreenshots(true)
 					.setSnapshots(true));
